@@ -6,7 +6,7 @@
 
 
 ## Uncomment this to install packages
-#install.packages('rvest')
+install.packages('rvest')
 
 # Load in 'rvest' package
 library('rvest')
@@ -27,13 +27,16 @@ rank_data<-as.numeric(rank_data)
 head(rank_data)
 
 #Using CSS selectors to scrape the title section
-
+title_data_html <- html_nodes(webpage, '.lister-item-header a')
 #html to text 
-
+title_data <- html_text(title_data_html)
 #look at data
+head(title_data)
 
+description_data <- gsub("\n", "", description_data)
 #Using CSS selectors to scrape the description section
 
+runtime_data_html <- html_nodes(webpage, ".text-muted .runtime")
 #Converting the description data to text
 
 #look at data
